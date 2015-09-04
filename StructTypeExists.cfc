@@ -1,10 +1,26 @@
 <cfcomponent output="false">
 	<cffunction name="init" output="false">
-		<cfset this.version = "1.1.8">
+		<cfset this.version = "1.1,1.1.1,1.1.2,1.1.3,1.1.4,1.1.5,1.1.6,1.1.7,1.1.8,1.3,1.3.1,1.3.2,1.3.3,1.3.4,1.4,1.4.1,1.4.2">
 		<cfreturn this>
 	</cffunction>
 
-	<cffunction name="structDateExists" returntype="boolean" hint="Returns whether or not a given `key` exists within `struct` and its valid is a date." output="false">
+	<cffunction name="structArrayExists" returntype="boolean" hint="Returns whether or not a given `key` exists within `struct` and its value is an array." output="false">
+		<cfargument name="struct" type="struct" required="true" hint="Struct to examine.">
+		<cfargument name="key" type="string" required="true" hint="Struct key to examine.">
+		<cfargument name="checkLength" type="boolean" required="false" default="false" hint="Whether or not to check that the array has at least 1 item.">
+		<cfscript>
+			var loc = {};
+
+			loc.exists = StructKeyExists(arguments.struct, arguments.key) && IsArray(arguments.struct[arguments.key]);
+
+			if (arguments.checkLength) {
+				loc.exists = loc.exists && ArrayLen(arguments.struct[arguments.key]);
+			}
+		</cfscript>
+		<cfreturn loc.exists>
+	</cffunction>
+
+	<cffunction name="structDateExists" returntype="boolean" hint="Returns whether or not a given `key` exists within `struct` and its value is a date." output="false">
 		<cfargument name="struct" type="struct" required="true" hint="Struct to examine.">
 		<cfargument name="key" type="string" required="true" hint="Struct key to examine.">
 
