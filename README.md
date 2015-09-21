@@ -31,6 +31,10 @@ Note that all of these methods also work fine with object instances passed into 
 Returns whether or not `struct[key]` exists and is an array. Pass in `true` for `checkLength` to also check that the array
 has at least 1 item.
 
+`boolean structBooleanExists(struct struct, string key, boolean checkTruthiness)`<br />
+Returns whether or not `struct[key]` exists and is boolean. Pass in `true` for `checkTruthiness` to also check that the value
+evaluates to a boolean `true`.
+
 `boolean structDateExists(struct struct, string key)`<br />
 Returns whether or not `struct[key]` exists and is a date.
 

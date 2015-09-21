@@ -20,6 +20,22 @@
 		<cfreturn loc.exists>
 	</cffunction>
 
+	<cffunction name="structBooleanExists" returntype="boolean" hint="Returns whether or not a given `key` exists within `struct` and its value is a boolean." output="false">
+		<cfargument name="struct" type="struct" required="true" hint="Struct to examine.">
+		<cfargument name="key" type="string" required="true" hint="Struct key to examine.">
+		<cfargument name="checkTruthiness" type="boolean" required="false" default="false" hint="Whether or not to also include a check that the value is truthy.">
+		<cfscript>
+			var loc = {};
+
+			loc.exists = StructKeyExists(arguments.struct, arguments.key) && IsBoolean(arguments.struct[arguments.key]);
+
+			if (arguments.checkTruthiness) {
+				loc.exists = loc.exists && arguments.struct[arguments.key];
+			}
+		</cfscript>
+		<cfreturn loc.exists>
+	</cffunction>
+
 	<cffunction name="structDateExists" returntype="boolean" hint="Returns whether or not a given `key` exists within `struct` and its value is a date." output="false">
 		<cfargument name="struct" type="struct" required="true" hint="Struct to examine.">
 		<cfargument name="key" type="string" required="true" hint="Struct key to examine.">
