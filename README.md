@@ -27,11 +27,11 @@ So we created this CFWheels plugin to add some convenience methods to avoid thes
 
 Note that all of these methods also work fine with object instances passed into the `struct` value.
 
-`boolean structArrayExists(struct struct, string key)`<br />
+`boolean structArrayExists(struct struct, string key[, boolean checkLength])`<br />
 Returns whether or not `struct[key]` exists and is an array. Pass in `true` for `checkLength` to also check that the array
 has at least 1 item.
 
-`boolean structBooleanExists(struct struct, string key, boolean checkTruthiness)`<br />
+`boolean structBooleanExists(struct struct, string key[, boolean checkTruthiness])`<br />
 Returns whether or not `struct[key]` exists and is boolean. Pass in `true` for `checkTruthiness` to also check that the value
 evaluates to a boolean `true`.
 
