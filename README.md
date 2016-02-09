@@ -56,6 +56,9 @@ Returns whether or not `struct[key]` exists and is a number.
 `boolean structObjectExists(struct struct, string key)`<br />
 Returns whether or not `struct[key]` exists and is an object.
 
+`boolean structStructExists(struct struct, string key)`<br />
+Returns whether or not `struct[key]` exists and is a struct itself.
+
 ## License
 
 The MIT License (MIT)
