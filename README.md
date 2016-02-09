@@ -63,4 +63,4 @@ Returns whether or not `struct[key]` exists and is a struct itself.
 
 The MIT License (MIT)
 
-Copyright (c) 2015 Liquifusion Studios
+Copyright (c) 2016 Liquifusion Studios
