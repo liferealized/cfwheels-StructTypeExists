@@ -107,4 +107,14 @@
 			and IsObject(arguments.struct[arguments.key])
 		>
 	</cffunction>
+
+	<cffunction name="structStructExists" returntype="boolean" hint="Returns whether or not a given `key` exists within `struct` and its value is a struct itself." output="false">
+		<cfargument name="struct" type="struct" required="true" hint="Struct to examine.">
+		<cfargument name="key" type="string" required="true" hint="Struct key to examine.">
+
+		<cfreturn
+			StructKeyExists(arguments.struct, arguments.key)
+			and IsStruct(arguments.struct[arguments.key])
+		>
+	</cffunction>
 </cfcomponent>
