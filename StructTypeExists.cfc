@@ -59,7 +59,7 @@
 	<cffunction name="structStringExists" returntype="boolean" hint="Returns whether or not a given `key` exists within `struct` and if it is a string. Optionally, check if the string has length." output="false">
 		<cfargument name="struct" type="struct" required="true" hint="Struct to examine.">
 		<cfargument name="key" type="string" required="true" hint="Struct key to examine.">
-		<cfargument name="checkLength" type="boolean" required="false" default="false" hint="Whether or not to check that the string has legnth.">
+		<cfargument name="checkLength" type="boolean" required="false" default="false" hint="Whether or not to check that the string has length.">
 		<cfscript>
 			var loc = {};
 
@@ -106,6 +106,20 @@
 			StructKeyExists(arguments.struct, arguments.key)
 			and IsObject(arguments.struct[arguments.key])
 		>
+	</cffunction>
+
+	<cffunction name="structQueryExists" returntype="boolean" hint="Returns whether or not a given `key` exists within `struct` and its value is a query." output="false">
+		<cfargument name="struct" type="struct" required="true" hint="Struct to examine.">
+		<cfargument name="key" type="string" required="true" hint="Struct key to examine.">
+		<cfargument name="checkRecordCount" type="boolean" required="false" default="false" hint="Whether or not to check that the query has at least 1 record.">
+		<cfscript>
+			loc.exists = StructKeyExists(arguments.struct, arguments.key) && IsQuery(arguments.struct[arguments.key]);
+
+			if (arguments.checkRecordCount) {
+				loc.exists = loc.exists && arguments.struct[arguments.key].RecordCount;
+			}
+		</cfscript>
+		<cfreturn loc.exists>
 	</cffunction>
 
 	<cffunction name="structStructExists" returntype="boolean" hint="Returns whether or not a given `key` exists within `struct` and its value is a struct itself." output="false">

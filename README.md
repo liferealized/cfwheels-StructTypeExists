@@ -56,6 +56,10 @@ Returns whether or not `struct[key]` exists and is a number.
 `boolean structObjectExists(struct struct, string key)`<br />
 Returns whether or not `struct[key]` exists and is an object.
 
+`boolean structQueryExists(struct struct, string key[, boolean checkRecordCount])`<br />
+Returns whether or not `struct[key]` exists and is a query result set. Pass in `true` for `checkRecordCount` to also check that
+the query has at least 1 record.
+
 `boolean structStructExists(struct struct, string key)`<br />
 Returns whether or not `struct[key]` exists and is a struct itself.
 
@@ -63,4 +67,4 @@ Returns whether or not `struct[key]` exists and is a struct itself.
 
 The MIT License (MIT)
 
-Copyright (c) 2016 Liquifusion Studios
+Copyright (c) 2015-2016 Liquifusion Studios
